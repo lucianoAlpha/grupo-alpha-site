@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-import './Home.css'
 
 const dados = {
   1: {
