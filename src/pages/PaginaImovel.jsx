@@ -1,7 +1,6 @@
 // src/pages/PaginaImovel.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Imovel from './Imovel';
 import { imoveis } from '../data/imoveis';
 import styles from './PaginaImovel.module.css';
 
@@ -15,7 +14,11 @@ function PaginaImovel() {
 
   return (
     <div className={styles.container}>
-      <Imovel imovel={imovel} />
+      <img src={imovel.imagem} alt={imovel.nome} />
+      <h2>{imovel.nome}</h2>
+      <p>{imovel.localizacao}</p>
+      <p>R$ {imovel.preco.toLocaleString()}</p>
+      <p>{imovel.descricao}</p>
     </div>
   );
 }
