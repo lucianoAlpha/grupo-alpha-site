@@ -1,11 +1,20 @@
 import React from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Destaques from './components/Destaques'
+import Sobre from './components/Sobre'
+import Footer from './components/Footer'
+import './styles/index.css'
 
 function App() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif', background: '#111', color: 'white' }}>
-      <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>GRUPO ALPHA</h1>
-      <p style={{ fontSize: '1.25rem' }}>VISÃO QUE CONSTRÓI LEGADO</p>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <Destaques />
+      <Sobre />
+      <Footer />
+    </>
   )
 }
 
