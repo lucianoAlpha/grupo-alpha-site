@@ -1,36 +1,28 @@
-import { useParams } from 'react-router-dom'
+import React from 'react';
+import styles from './Imovel.module.css';
 
-const dados = {
-  1: {
-    titulo: 'Casa Térrea Moderna',
-    localizacao: 'São Paulo-SP',
-    preco: 'R$ 1 250 000',
-    descricao: 'Casa moderna com 3 quartos, jardim e garagem para 2 carros.',
-    imagem: '/public/casa.jpg'
-  },
-  2: {
-    titulo: 'Apartamento com Varanda',
-    localizacao: 'Curitiba-PR',
-    preco: 'R$ 890 000',
-    descricao: 'Apartamento no andar alto, 2 quartos e vista panorâmica.',
-    imagem: '/public/apto.jpg'
+function Imovel({ imovel }) {
+  if (!imovel) {
+    return <p>Imóvel não encontrado.</p>;
   }
-}
-
-export default function Imovel() {
-  const { id } = useParams()
-  const imovel = dados[id]
 
   return (
-    <div className="container">
-      <div className="card">
-        <img src={imovel.imagem} alt={imovel.titulo} />
-        <h1>{imovel.titulo}</h1>
-        <p><strong>Localização:</strong> {imovel.localizacao}</p>
-        <p><strong>Preço:</strong> {imovel.preco}</p>
-        <p><strong>Descrição:</strong> {imovel.descricao}</p>
-        <a href="https://api.whatsapp.com/send?phone=5599999999998&text=Olá, tenho interesse no imóvel!" className="botao">Fale conosco</a>
-      </div>
+    <div className={styles.container}>
+      <img src={imovel.imagem} alt={imovel.titulo} className={styles.image} />
+      <h1 className={styles.title}>{imovel.titulo}</h1>
+      <p className={styles.texto}><span className={styles.label}>Localização:</span> {imovel.cidade}-{imovel.estado}</p>
+      <p className={styles.texto}><span className={styles.label}>Preço:</span> R$ {imovel.preco.toLocaleString()}</p>
+      <p className={styles.texto}><span className={styles.label}>Descrição:</span> {imovel.descricao}</p>
+      <a
+        className={styles.button}
+        href={`https://api.whatsapp.com/send?phone=5599999999998&text=Olá! Tenho interesse no imóvel ${imovel.titulo}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Fale conosco
+      </a>
     </div>
-  )
+  );
 }
+
+export default Imovel;

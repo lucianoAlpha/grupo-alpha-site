@@ -1,38 +1,24 @@
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Home.module.css';
 
-const imoveis = [
-  {
-    id: 1,
-    titulo: 'Casa Térrea Moderna',
-    localizacao: 'São Paulo - SP',
-    preco: 'R$ 1 250 000',
-    descricao: 'Casa moderna com 3 quartos, jardim e garagem para 2 carros.',
-    imagem: '/public/casa.jpg'
-  },
-  {
-    id: 2,
-    titulo: 'Apartamento com Varanda',
-    localizacao: 'Curitiba - PR',
-    preco: 'R$ 890 000',
-    descricao: 'Apartamento no andar alto, 2 quartos e vista panorâmica.',
-    imagem: '/public/apto.jpg'
-  }
-]
-
-export default function Home() {
+function Home({ imoveis }) {
   return (
-    <div className="container">
-      <h1>Imóveis em Destaque</h1>
-      {imoveis.map(imovel => (
-        <div className="card" key={imovel.id}>
+    <div className={styles.container}>
+      {imoveis.map((imovel) => (
+        <div key={imovel.id} className={styles.card}>
           <img src={imovel.imagem} alt={imovel.titulo} />
-          <h2>{imovel.titulo}</h2>
-          <p>{imovel.localizacao}</p>
-          <strong>{imovel.preco}</strong>
-          <p>{imovel.descricao}</p>
-          <Link to={`/imovel/${imovel.id}`} className="botao">Ver mais</Link>
+          <h2 className={styles.title}>{imovel.titulo}</h2>
+          <p className={styles.city}>{imovel.cidade} - {imovel.estado}</p>
+          <p className={styles.price}>R$ {imovel.preco.toLocaleString()}</p>
+          <p className={styles.description}>{imovel.descricao}</p>
+          <Link to={`/imovel/${imovel.id}`}>
+            <button className={styles.button}>Ver mais</button>
+          </Link>
         </div>
       ))}
     </div>
-  )
+  );
 }
+
+export default Home;
