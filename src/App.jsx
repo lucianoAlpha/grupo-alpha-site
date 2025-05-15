@@ -1,20 +1,17 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Destaques from './components/Destaques'
-import Sobre from './components/Sobre'
-import Footer from './components/Footer'
+import PaginaImovel from './pages/PaginaImovel'
 import './styles/index.css'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Destaques />
-      <Sobre />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Destaques />} />
+        <Route path="/imovel/:id" element={<PaginaImovel />} />
+      </Routes>
+    </Router>
   )
 }
 
