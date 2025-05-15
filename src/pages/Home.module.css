@@ -1,38 +1,83 @@
+/* src/pages/Home.module.css */
 
-.container {
+/* HERO SECTION */
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.heroButton {
+  background-color: #ffd700;
+  color: black;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.heroButton:hover {
+  background-color: #e5c100;
+}
+
+/* LISTA DE IMÓVEIS */
+.lista {
+  padding: 3rem 2rem;
+  background-color: #f4f4f4;
 }
 
 .card {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.imagem {
+  width: 40%;
+  object-fit: cover;
+}
+
+.info {
+  padding: 1.5rem;
+  width: 60%;
+}
+
+.info h2 {
+  margin-top: 0;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 1rem;
   background-color: #222;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.title {
-  font-size: 1.5rem;
-  color: #ffd700;
-}
-
-.city,
-.price,
-.description {
-  font-size: 1rem;
-  margin: 4px 0;
-}
-
-.button {
-  background-color: #ffd700;
-  color: #000;
-  padding: 10px 16px;
-  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
   border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 12px;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #444;
 }
