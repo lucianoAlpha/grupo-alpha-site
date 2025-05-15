@@ -1,36 +1,31 @@
-// src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import imoveis from '../data/imoveis';
 import styles from './Home.module.css';
 
-function Home() {
+function Home({ imoveis }) {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1>Encontre o imóvel dos seus sonhos</h1>
-          <p>Casas, apartamentos e coberturas nos melhores bairros</p>
-          <Link to="/imovel/1" className={styles.heroButton}>Ver imóveis</Link>
-        </div>
-      </section>
+    <div className={styles.pageContainer}>
+      <div className={styles.heroSection}>
+        <h1 className={styles.heroTitle}>Encontre o imóvel dos seus sonhos</h1>
+        <p className={styles.heroSubtitle}>Compre, alugue ou anuncie com facilidade e segurança</p>
+        <Link to="/contato" className={styles.heroButton}>Fale Conosco</Link>
+      </div>
 
-      {/* Lista de Imóveis */}
-      <section className={styles.lista}>
+      <h2 className={styles.sectionTitle}>Imóveis em destaque</h2>
+      <div className={styles.grid}>
         {imoveis.map((imovel) => (
           <div key={imovel.id} className={styles.card}>
-            <img src={imovel.imagem} alt={imovel.nome} className={styles.imagem} />
-            <div className={styles.info}>
-              <h2>{imovel.nome}</h2>
-              <p>{imovel.localizacao}</p>
-              <p>R$ {imovel.preco.toLocaleString()}</p>
-              <p>{imovel.descricao}</p>
-              <Link to={`/imovel/${imovel.id}`} className={styles.botao}>Ver mais</Link>
+            <img src={imovel.imagem} alt={imovel.nome} className={styles.image} />
+            <div className={styles.cardContent}>
+              <h3 className={styles.title}>{imovel.nome}</h3>
+              <p className={styles.location}>{imovel.localizacao}</p>
+              <p className={styles.price}>R$ {imovel.preco.toLocaleString()}</p>
+              <p className={styles.description}>{imovel.descricao}</p>
+              <Link to={`/imovel/${imovel.id}`} className={styles.button}>Ver mais</Link>
             </div>
           </div>
         ))}
-      </section>
+      </div>
     </div>
   );
 }

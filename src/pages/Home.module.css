@@ -1,83 +1,104 @@
-/* src/pages/Home.module.css */
-
-/* HERO SECTION */
-.hero {
-  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
+/* Home.module.css */
+.pageContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
+  background: #f5f5f5;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  padding-bottom: 50px;
+}
+
+.heroSection {
+  background: url('https://images.unsplash.com/photo-1600607687126-425be8d11d2d') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  padding: 100px 20px;
   text-align: center;
-  padding: 2rem;
+  color: white;
 }
 
-.heroContent h1 {
+.heroTitle {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #000;
 }
 
-.heroContent p {
+.heroSubtitle {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px #000;
 }
 
 .heroButton {
-  background-color: #ffd700;
-  color: black;
-  padding: 0.8rem 1.5rem;
+  background-color: #ffce00;
+  color: #000;
   font-weight: bold;
+  padding: 12px 24px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s;
 }
 
-.heroButton:hover {
-  background-color: #e5c100;
+.sectionTitle {
+  font-size: 2rem;
+  margin: 40px 0 20px;
 }
 
-/* LISTA DE IMÓVEIS */
-.lista {
-  padding: 3rem 2rem;
-  background-color: #f4f4f4;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .card {
-  display: flex;
-  background-color: white;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.imagem {
-  width: 40%;
+.image {
+  width: 100%;
+  height: 180px;
   object-fit: cover;
 }
 
-.info {
-  padding: 1.5rem;
-  width: 60%;
+.cardContent {
+  padding: 20px;
 }
 
-.info h2 {
-  margin-top: 0;
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
-.botao {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: #222;
+.location {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.button {
+  background-color: #0070f3;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 10px 16px;
+  text-align: center;
   text-decoration: none;
   border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.botao:hover {
-  background-color: #444;
+  display: inline-block;
 }
